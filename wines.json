@@ -1,0 +1,42 @@
+[
+    {
+        "id": 1,
+        "product-name": "Somlói Apátsági Pince Juhfark",
+        "product-description": "Vulkanikus juhfark a Somlói Apátsági Pincétől",
+        "product-price": "6300 Ft",
+        "product-image": "https://govolcanic-banners.eu-central-1.linodeobjects.com/somloi-apatsagi-juhfark-2021.png",
+        "product-link": "https://govolcanic.hu/product/somloi-apatsagi-juhfark-2021/"
+    },
+    {
+        "id": 2,
+        "product-name": "Kolonics Furmint",
+        "product-description": "Hagyományos Somlói vulkanikus furmint, 2021",
+        "product-price": "3600 Ft",
+        "product-image": "https://govolcanic-banners.eu-central-1.linodeobjects.com/kolonics-furmint.png",
+        "product-link": "https://govolcanic.hu/product/kolonics-furmint/"
+    },
+    {
+        "id": 3,
+        "product-name": "Fekete fkt Hárslevelű",
+        "product-description": "“Határozott savak és maradék cukor mellett Somlóhoz méltó ásványosság járja körbe a kortyot”",
+        "product-price": "5800 Ft",
+        "product-image": "https://govolcanic-banners.eu-central-1.linodeobjects.com/fekete-harslevelu-2015.png",
+        "product-link": "https://govolcanic.hu/product/fekete-harslevelu-2015/"
+    },
+    {
+        "id": 4,
+        "product-name": "Somló Kincse Sárfehér",
+        "product-description": "“Szájban maga a Somló, sós és egyszerre citrusos, leheletnyi maradék cukorkával, a végen pici kesernyével.”",
+        "product-price": "7200 Ft",
+        "product-image": "https://govolcanic-banners.eu-central-1.linodeobjects.com/somlo-kincse-sarfeher.png",
+        "product-link": "https://govolcanic.hu/product/somlo-kincse-sarfeher/"
+    },
+    {
+        "id": 5,
+        "product-name": "Somlói Apátsági Furmint",
+        "product-description": "Vulkanikus furmint a Somlói Apátsági Pincéből",
+        "product-price": "6300 Ft",
+        "product-image": "https://govolcanic-banners.eu-central-1.linodeobjects.com/somloi-apatsagi-furmint.png",
+        "product-link": "https://govolcanic.hu/product/somloi-apatsagi-furmint/"
+    }
+]

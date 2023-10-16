@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>970x250 govolcanic Banner</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        a {
+            color: inherit;
+            text-decoration: inherit;
+        }
+
+        #banner {
+            width: 970px;
+            height: 250px;
+            display: flex;
+            font-family: 'Inter', sans-serif;
+        }
+
+        #banner .right-side {
+            width: 50%;
+            background-color: #BE1E2D;
+            color: #FFF;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        #banner .right-side:hover {
+            background-color: #cd2133; 
+        }
+
+        #banner .left-side {
+            width: 50%;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        #banner .left-side:hover {
+            background-color: #fbfbfb;
+        }
+
+        #banner img {
+            max-width: 100%;
+            max-height: 60px;
+        }
+
+        #tagline {
+            margin-top: 32px;
+            margin-left: 27px;
+            font-size: 12px;
+        }
+
+        #product-price {
+            font-style: italic;
+            color: #757575;
+        }
+
+        #logo {
+            position: absolute;
+        }
+
+        #validation {
+            margin-top: 30px;
+        }
+
+        .cta-button {
+            background-color: #FFF;
+            color: #BE1E2D;
+            padding: 10px 20px;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 10px;
+            border-radius: 25px;
+            box-shadow: 0 5px 5px rgba(0,0,0,.25);
+        }
+        .cta-button:hover {
+            background-color: #f1f1f1;
+            box-shadow: 0 2px 2px rgba(0,0,0,.25);
+        }
+
+        #circle-loader {
+            border: 16px solid #f3f3f3;  /* Light grey */
+            border-top: 16px solid #BE1E2D; /* Blue */
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            animation: spin 2s linear infinite;
+            margin: auto; /* Center it horizontally */
+            margin-top: 50px;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+
+        /* SLIDE-IN */
+
+        @keyframes dropSlideIn {
+    0% {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+        .slide-in {
+            opacity: 0;
+            animation: dropSlideIn 0.7s forwards;
+        }
+
+        #logo {
+            animation-delay: 0.2s; 
+        }
+
+        #tagline {
+            animation-delay: 0.4s; 
+        }
+
+        #validation {
+            animation-delay: 0.6s;
+        }
+
+        .cta-button {
+            animation-delay: 0.8s; 
+        }
+
+
+
+    </style>
+</head>
+
+<body>
+    <div id="banner">
+            <div class="left-side">
+                <a id="product-link" href="#" target="_blank">
+                <div id="circle-loader"></div>
+
+                <img id="product-image" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==" alt="Wine Bottle">
+                <h3 id="product-name"></h3>
+                <p id="product-description"></p>
+                <p id="product-price"></p>
+            </a>
+            </div>
+
+            <div class="right-side">
+                <a href="https://govolcanic.hu?utm_source=blikk&utm_medium=banner&utm_campaign=blikk-q3" target="_blank">
+                    <img id="logo" class="slide-in" src="govolcanic-logo-white.svg" height="60"/>
+                    <p id="tagline" class="slide-in" >Az ország legnagyobb vulkanikus borválasztéka!</p>
+                    <h2 id="validation" class="slide-in" ><span id="counter">3700</span> vásárlónk már tudja, hogy borból a vulkanikus az igazi!</h2>
+                    <a href="https://govolcanic.hu?utm_source=blikk&utm_medium=banner&utm_campaign=blikk-q3&utm_content=970x250" class="cta-button slide-in" target="_blank">Megnézem a választékot!</a>
+                </a>
+            </div>
+        </a>
+    </div>
+
+   <script>
+function sanitizeHtml(input) {
+    const doc = new DOMParser().parseFromString(input, 'text/html');
+    return doc.body.textContent || "";
+}
+
+function animateValue(id, start, end, duration) {
+    let obj = document.getElementById(id);
+    let range = end - start;
+
+    // We'll increment the value by this amount every frame.
+    let increment = end > start? 1 : -1;
+    let stepTime = Math.abs(Math.floor(duration / range));
+
+    let currentValue = start;
+    let timer = setInterval(function() {
+        currentValue += increment;
+        obj.innerHTML = currentValue;
+
+        if ((increment > 0 && currentValue >= end) || (increment < 0 && currentValue <= end)) {
+            clearInterval(timer);
+        }
+    }, stepTime);
+}
+
+// Call the function
+animateValue("counter", 3700, 3741, 2000);  // The last parameter is the duration in ms.
+
+
+// Use fetch to get the data from wines.json
+fetch('https://govolcanic-banners.eu-central-1.linodeobjects.com/wines.json')
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Failed to fetch wines.json');
+        }
+        return response.json();
+    })
+    .then(data => {
+        if (data && data.length > 0) {
+            const randomIndex = Math.floor(Math.random() * data.length); // This gives a random index
+            const wine = data[randomIndex];
+
+            document.getElementById('product-image').src = wine["product-image"];
+            document.getElementById('product-name').textContent = wine["product-name"];
+            document.getElementById('product-description').textContent = wine["product-description"];
+            document.getElementById('product-price').textContent = wine["product-price"];
+            document.getElementById('product-link').href = 'https://gemadhu.hit.gemius.pl/hitredir/id=0huaqC9K243jgXw7emvXiHYZ7zeBd8O89w0Aa8yIeVb.V7/stparam=qcgkcrjfio/fastid=anekqbblcfenbjjykxpzbxmsxkkx/nc=0/url=' + wine["product-link"] + '?utm_source=blikk&utm_medium=banner&utm_campaign=blikk-q3&utm_content=300x250';
+
+            // Hide loader and show product info once the data is loaded
+            document.getElementById('circle-loader').style.display = 'none';
+            document.getElementById('product-image').style.display = 'block';
+            document.getElementById('product-name').style.display = 'block';
+            document.getElementById('product-description').style.display = 'block';
+            document.getElementById('product-price').style.display = 'block';
+
+        } else {
+            console.error("No wine data available.");
+        }
+    })
+    .catch(error => {
+        console.error('Error fetching wines:', error);
+    });
+</script>
+
+
+</body>
+
+</html>
